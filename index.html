@@ -1,0 +1,301 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PS3 Homebrew Village - Minecraft Edition</title>
+    
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+    
+    <style>
+        /* Importation des polices Minecraft */
+        @import url('https://fonts.googleapis.com/css2?family=Press+Start+2P&family=VT323&display=swap');
+
+        :root {
+            --mc-green-dark: #3a8a3a;
+            --mc-green-light: #52b152;
+            --mc-brown-dark: #6a442a;
+            --mc-brown-light: #8e5c3b;
+            --mc-wood: #7e5c3b;
+            --mc-stone: #646464;
+            --mc-dirt: #8b572a;
+            --mc-grass: #72a939;
+            --text-primary: #fff;
+            --text-secondary: #ccc;
+            --border-mc: 2px solid #333;
+        }
+
+        body {
+            font-family: 'VT323', monospace;
+            margin: 0;
+            padding: 0;
+            overflow-x: hidden;
+            color: var(--text-primary);
+            background-color: #000;
+        }
+
+        /* --- Fond d'écran animé Minecraft --- */
+        .bg-minecraft {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-image: url('https://www.minecraft.net/content/dam/games/minecraft/backgrounds/Background_Bedrock.jpg');
+            background-size: cover;
+            background-position: center center;
+            animation: panBackground 60s linear infinite;
+            z-index: -2;
+            filter: blur(2px) brightness(0.7);
+        }
+
+        @keyframes panBackground {
+            0% { background-position: 0% 0%; }
+            25% { background-position: 100% 0%; }
+            50% { background-position: 100% 100%; }
+            75% { background-position: 0% 100%; }
+            100% { background-position: 0% 0%; }
+        }
+
+        /* --- Overlay --- */
+        .overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.5);
+            z-index: -1;
+        }
+
+        /* --- Contenu principal --- */
+        .container-mc {
+            max-width: 1200px;
+            margin: 30px auto;
+            padding: 20px;
+            background-color: rgba(30, 30, 30, 0.8);
+            border: var(--border-mc);
+            box-shadow: 0 0 15px rgba(0, 0, 0, 0.7);
+            border-radius: 8px;
+            position: relative;
+            z-index: 0;
+        }
+
+        h1, h2, h3, .navbar-brand {
+            font-family: 'Press Start 2P', cursive;
+            color: var(--mc-green-light);
+            text-shadow: 2px 2px #000;
+        }
+
+        .lead {
+            font-family: 'VT323', monospace;
+            font-size: 1.2rem;
+        }
+
+        /* --- Navbar --- */
+        .navbar {
+            background-color: rgba(var(--mc-brown-dark), 0.9) !important;
+            border-bottom: var(--border-mc);
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.5);
+            font-family: 'Press Start 2P', cursive;
+        }
+
+        .navbar-nav .nav-link {
+            color: var(--text-primary) !important;
+            text-shadow: 1px 1px #000;
+        }
+
+        .navbar-nav .nav-link.active,
+        .navbar-nav .nav-link:hover {
+            color: var(--mc-green-light) !important;
+            text-shadow: 1px 1px var(--mc-green-dark);
+        }
+
+        /* --- Cartes (Blocs de contenu) --- */
+        .card-mc {
+            background-color: rgba(var(--mc-stone), 0.9);
+            border: var(--border-mc);
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.4);
+            transition: transform 0.2s, box-shadow 0.2s;
+            border-radius: 4px;
+        }
+
+        .card-mc:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 8px 16px rgba(0, 0, 0, 0.6);
+            border: 2px solid var(--mc-green-light);
+        }
+
+        .card-header-mc {
+            background-color: rgba(var(--mc-grass), 0.9);
+            color: white;
+            padding: 10px 15px;
+            border-bottom: var(--border-mc);
+            font-family: 'Press Start 2P', cursive;
+            font-size: 1.1rem;
+        }
+
+        .card-body-mc {
+            padding: 15px;
+        }
+
+        .card-text-mc {
+            font-family: 'VT323', monospace;
+            font-size: 1rem;
+        }
+
+        /* --- Boutons "blocs" --- */
+        .btn-mc {
+            background-color: var(--mc-brown-dark);
+            border: var(--border-mc);
+            color: var(--text-primary);
+            padding: 8px 15px;
+            font-family: 'Press Start 2P', cursive;
+            font-size: 0.8rem;
+            text-shadow: 1px 1px #000;
+            transition: background-color 0.2s;
+            border-radius: 4px;
+        }
+
+        .btn-mc:hover {
+            background-color: var(--mc-wood);
+            color: var(--mc-green-light);
+        }
+
+        /* --- Pied de page --- */
+        footer {
+            background-color: rgba(var(--mc-dirt), 0.9);
+            border-top: var(--border-mc);
+            padding: 20px;
+            margin-top: 40px;
+            font-size: 0.9rem;
+            color: var(--text-secondary);
+            font-family: 'VT323', monospace;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="bg-minecraft"></div>
+    <div class="overlay"></div>
+
+    <nav class="navbar navbar-expand-lg navbar-dark sticky-top">
+        <div class="container-fluid container-mc">
+            <a class="navbar-brand" href="#"><span style="color: var(--mc-green-light);">PS3</span> Craft</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item"><a class="nav-link active" href="#">Accueil</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#guides">Tutoriels</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#downloads">Téléchargements</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#community">Communauté</a></li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <div class="container-mc my-5">
+        
+        <div class="text-center py-5">
+            <h1 class="display-4 fw-bold mb-3">BIENVENUE DANS LA MINE AUX MODS PS3 !</h1>
+            <p class="lead mb-4">Découvrez les secrets du HEN et du CFW pour votre PlayStation 3. Préparez vos pioches !</p>
+            <p id="hen-version" class="text-white fw-bold"></p>
+        </div>
+
+        <h2 class="text-center mb-4 mt-5 text-white" id="guides">Nos Blocs de Tutoriels</h2>
+
+        <div class="row g-4">
+            
+            <div class="col-md-6 col-lg-4">
+                <div class="card-mc h-100">
+                    <div class="card-header-mc">Installation du HEN (⛏️)</div>
+                    <div class="card-body-mc">
+                        <h5 class="card-title text-white">Guide Complet HEN 4.91</h5>
+                        <p class="card-text-mc">Installez le Homebrew Enabler sur toutes les PS3. Compatible Fat, Slim, Super Slim. Tutoriel pas à pas.</p>
+                        <a href="https://www.psx-place.com/threads/release-ps3hen-v3-2-2-for-4-90-hfw-only-easy-way-to-enable-hen-support-without-any-cfw.39343/" target="_blank" class="btn btn-mc">Commencer l'extraction</a>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-md-6 col-lg-4">
+                <div class="card-mc h-100">
+                    <div class="card-header-mc">Outils Essentiels (🛠️)</div>
+                    <div class="card-body-mc">
+                        <h5 class="card-title text-white">MultiMan & WebMan Mod</h5>
+                        <p class="card-text-mc">Les gestionnaires de fichiers et de jeux incontournables pour votre PS3 modifiée. Organisez votre inventaire !</p>
+                        <a href="#" class="btn btn-mc">Trouver dans la forge</a>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-md-6 col-lg-4">
+                <div class="card-mc h-100">
+                    <div class="card-header-mc">Sécurité & Maintenance (🛡️)</div>
+                    <div class="card-body-mc">
+                        <h5 class="card-title text-white">Protéger votre village PSN</h5>
+                        <p class="card-text-mc">Conseils et astuces pour éviter les bannissements et nettoyer votre console après utilisation.</p>
+                        <a href="#" class="btn btn-mc">Bâtir des défenses</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <h2 class="text-center mt-5 mb-4 text-white" id="downloads">Les Trésors de la Mine (Téléchargements)</h2>
+        <div class="row g-4 justify-content-center">
+            <div class="col-md-6 col-lg-4">
+                <div class="card-mc h-100">
+                    <div class="card-header-mc">Firmware HFW (📦)</div>
+                    <div class="card-body-mc">
+                        <h5 class="card-title text-white">HFW 4.91</h5>
+                        <p class="card-text-mc">Le firmware hybride nécessaire avant l'installation du HEN. Téléchargement sûr.</p>
+                        <a href="#" class="btn btn-mc">Télécharger le minerais</a>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-6 col-lg-4">
+                <div class="card-mc h-100">
+                    <div class="card-header-mc">Homebrews Essentiels (🌟)</div>
+                    <div class="card-body-mc">
+                        <h5 class="card-title text-white">Pack Homebrew 2024</h5>
+                        <p class="card-text-mc">Une sélection des meilleurs homebrews et utilitaires pour votre console. Plus de craft !</p>
+                        <a href="#" class="btn btn-mc">Récupérer le butin</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <h2 class="text-center mt-5 mb-4 text-white" id="community">Notre Communauté de Mineurs</h2>
+        <div class="text-center">
+            <p class="lead">Rejoignez notre Discord pour échanger vos astuces, obtenir de l'aide et partager vos découvertes !</p>
+            <a href="https://discord.gg/" target="_blank" class="btn btn-mc">Rejoindre le serveur (Discord)</a>
+        </div>
+
+    </div>
+
+    <footer class="text-center py-4">
+        <div class="container-mc">
+            <p class="mb-0 text-secondary">&copy; 2024 PS3 Homebrew Village. Explorez, Créez, Partagez. Tous droits réservés.</p>
+            <p class="text-secondary">Attention : Le modding peut comporter des risques. Faites toujours des sauvegardes et agissez prudemment.</p>
+        </div>
+    </footer>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', (event) => {
+            // Affiche la version recommandée du HEN (exemple)
+            const henVersionElement = document.getElementById('hen-version');
+            if (henVersionElement) {
+                const latestHenVersion = "4.91 HFW - V3.2.1";
+                // L'image doit être hôte sur internet pour que Render la trouve
+                henVersionElement.innerHTML = `<img src="https://i.imgur.com/K1LgO3K.png" alt="Diamond" style="vertical-align: middle; height: 32px; margin-right: 10px;"> Dernière version HEN : <span style="color: yellow;">${latestHenVersion}</span>`;
+            }
+
+            // Alerte simple dans la console du navigateur
+            console.log("PS3 Minecraft Modding Hub chargé !");
+        });
+    </script>
+    
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>
