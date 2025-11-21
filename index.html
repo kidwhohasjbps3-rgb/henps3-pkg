@@ -3,125 +3,149 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Explication : PS3 HEN (Homebrew Enabler)</title>
+    <title>PS3Xploit - Portail d'Information Communautaire</title>
     <style>
-        /* Styles de base pour un rendu moderne */
+        /* --- STYLES GLOBALES --- */
         body {
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            font-family: 'Consolas', monospace, sans-serif;
             margin: 0;
             padding: 0;
-            background-color: #f4f4f9; /* Arrière-plan très clair */
-            color: #333; /* Texte sombre */
+            background-color: #1a1a1a; /* Noir très sombre */
+            color: #dcdcdc; /* Texte gris clair */
             line-height: 1.6;
         }
 
+        /* --- EN-TÊTE (HEADER) --- */
         .header {
-            background-color: #34495e; /* Bleu foncé/gris */
-            color: white;
-            padding: 40px 20px;
+            background-color: #004d99; /* Bleu foncé PlayStation */
+            padding: 30px 20px;
             text-align: center;
-            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            border-bottom: 5px solid #cc0000; /* Ligne rouge d'accent */
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.4);
         }
 
         .header h1 {
             margin: 0;
-            font-size: 2.5em;
+            font-size: 2.8em;
+            letter-spacing: 3px;
         }
 
+        .header p {
+            font-style: italic;
+            color: #b0c4de;
+        }
+
+        /* --- CONTENEUR PRINCIPAL --- */
         .container {
-            max-width: 900px;
-            margin: 30px auto;
-            padding: 20px;
-            background-color: white;
+            max-width: 1000px;
+            margin: 40px auto;
+            padding: 0 20px;
+        }
+
+        /* --- SECTIONS D'OUTILS --- */
+        .tool-section {
+            background-color: #2b2b2b; /* Arrière-plan légèrement plus clair pour les blocs */
             border-radius: 8px;
-            box-shadow: 0 0 20px rgba(0, 0, 0, 0.05);
+            padding: 25px;
+            margin-bottom: 30px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+            transition: transform 0.3s;
         }
 
-        .section {
-            padding: 20px 0;
-            border-bottom: 1px solid #eee;
+        .tool-section:hover {
+            transform: translateY(-5px);
         }
 
-        .section:last-child {
-            border-bottom: none;
-        }
-
-        .section h2 {
-            color: #2c3e50; /* Bleu marine */
-            border-left: 5px solid #e74c3c; /* Barre rouge à gauche */
-            padding-left: 10px;
+        .tool-section h2 {
+            color: #ff9900; /* Orange pour les titres */
+            border-bottom: 2px solid #333;
+            padding-bottom: 10px;
             margin-top: 0;
-            font-size: 1.8em;
+            font-size: 1.6em;
         }
 
+        /* --- LISTE DE POINTS CLÉS --- */
         ul {
-            list-style-type: none;
-            padding: 0;
+            list-style: none;
+            padding-left: 0;
         }
 
         ul li {
-            background: #ecf0f1; /* Gris clair pour les éléments de liste */
             margin-bottom: 10px;
-            padding: 15px;
-            border-radius: 4px;
-            transition: background-color 0.3s;
+            padding-left: 25px;
+            position: relative;
         }
 
-        ul li:hover {
-            background-color: #dce0e1;
+        /* Style pour l'icône de liste */
+        ul li::before {
+            content: "➤";
+            color: #cc0000; /* Puce rouge */
+            font-weight: bold;
+            display: inline-block;
+            width: 1em;
+            margin-left: -1em;
+            position: absolute;
+            left: 0;
         }
 
-        .important {
-            background-color: #f9e2e2; /* Rouge pâle pour l'attention */
-            border-left: 5px solid #c0392b;
+        /* --- AVERTISSEMENTS / NOTES --- */
+        .warning-box {
+            background-color: #381a1a; /* Rouge bordeaux doux */
+            border-left: 5px solid #cc0000;
             padding: 15px;
-            margin-top: 20px;
+            margin-top: 25px;
             border-radius: 4px;
             font-weight: bold;
-            color: #c0392b;
         }
 
-        code {
-            background-color: #eee;
-            padding: 2px 4px;
-            border-radius: 3px;
+        .code-block {
+            background-color: #111;
+            padding: 10px;
+            border-radius: 4px;
+            overflow-x: auto;
+            margin-top: 15px;
+            font-size: 0.9em;
+            color: #76ff03; /* Vert néon pour le code */
         }
     </style>
 </head>
 <body>
 
     <header class="header">
-        <h1>🎮 Le PS3 HEN (Homebrew ENabler) expliqué</h1>
-        <p>Tout ce que vous devez savoir sur cet outil essentiel pour la communauté PlayStation 3.</p>
+        <h1>PS3XPLOIT.COM</h1>
+        <p>Archive et Documentation des Outils de Modification PlayStation 3</p>
     </header>
 
     <div class="container">
 
-        <div class="section">
-            <h2>Qu'est-ce que le PS3 HEN ?</h2>
-            <p>Le **PS3 HEN** (abréviation de **H**omebrew **EN**abler) est une solution logicielle non-officielle permettant d'activer des fonctionnalités de **Homebrew** (logiciels non signés) sur les consoles PlayStation 3 qui ne peuvent pas installer un **Custom Firmware (CFW)** complet.</p>
-            <p>Il est principalement utilisé sur les modèles de PS3 plus récents (**Slim** et **Super Slim**) qui ont été mis à jour au-delà de la version de firmware 4.82, ou qui ne sont tout simplement pas compatibles avec un CFW traditionnel.</p>
-            <p class="important">⚠️ **Attention :** Le HEN doit être activé à **chaque démarrage** de la console, contrairement à un CFW qui est permanent.</p>
-        </div>
-        
-        <div class="section">
-            <h2>Principales Caractéristiques et Utilisations</h2>
-            <p>Le HEN ouvre la porte à de nombreuses possibilités sur votre console. Une fois activé, vous pouvez profiter des éléments suivants :</p>
+        <div class="tool-section">
+            <h2>🛠️ PS3 HEN (Homebrew ENabler)</h2>
+            <p>Le HEN est l'exploit le plus polyvalent, conçu pour fonctionner sur **tous les modèles de PS3** (Fat, Slim et Super Slim) qui ne supportent pas le CFW, notamment ceux avec des firmwares récents.</p>
+            
+            <h3>Fonctionnalités Clés :</h3>
             <ul>
-                <li>Accès au **MultiMAN** ou **WebMAN Mod** : Des gestionnaires de fichiers et de sauvegardes pour lancer des jeux depuis un disque dur interne/externe.</li>
-                <li>Installation de **Homebrews** : Applications développées par la communauté (émulateurs, outils de sauvegarde, etc.) au format <code>.pkg</code>.</li>
-                <li>Utilisation de **Patchs et Mods** : Modification des jeux existants.</li>
-                <li>Possibilité de réaliser des **backups** de vos jeux pour les préserver.</li>
+                <li>**Compatibilité Universelle :** Accessible sur la majorité des consoles PS3 jusqu'au dernier firmware.</li>
+                <li>**Activation Temporaire :** Doit être lancé via le navigateur web de la console (ou une icône) à chaque redémarrage.</li>
+                <li>**Accès aux Homebrews :** Permet d'installer des applications <code>.pkg</code> non signées (MultiMAN, WebMAN MOD, etc.).</li>
             </ul>
         </div>
         
-        <div class="section">
-            <h2>HEN vs. Custom Firmware (CFW)</h2>
-            <p>Bien que similaires, ils ne sont pas identiques. Voici la principale différence :</p>
+        <div class="tool-section">
+            <h2>💾 PS3 NOR / NAND Flasher (Exploit)</h2>
+            <p>Cet outil est l'exploit original et le plus puissant. Il est réservé aux consoles plus anciennes, permettant une modification **permanente** du système.</p>
+            
+            <h3>Son Rôle :</h3>
             <ul>
-                <li>**CFW (Custom Firmware) :** Est un firmware modifié qui s'installe **définitivement** sur la console (nécessite certains modèles **Fat** ou **Slim**). Il donne des permissions de noyau permanentes.</li>
-                <li>**HEN (Homebrew Enabler) :** Est un exploit qui s'exécute en **mémoire** (RAM) et doit être relancé. Il est compatible avec **tous les modèles** de PS3 ayant le firmware requis. Il offre un accès utilisateur aux fonctionnalités CFW, mais n'est pas un CFW à part entière.</li>
+                <li>**Vérification de Compatibilité :** Détermine si le modèle de votre console peut installer un Custom Firmware (CFW).</li>
+                <li>**Écriture du Flash :** Permet d'écrire sur la mémoire interne de la console (NOR ou NAND).</li>
+                <li>**Préparation au CFW :** Il est utilisé pour installer le **HFW** (Hybrid Firmware) et l'exploit qui permet ensuite l'installation d'un CFW complet.</li>
             </ul>
+        </div>
+
+        <div class="warning-box">
+            <h4>🚨 Avertissement Important</h4>
+            <p>Ce site est une **ressource informative** et ne contient aucun code d'exploitation actif. L'utilisation de ces outils modifie votre console et comporte des risques (brick). Recherchez toujours les sources officielles de la communauté pour les tutoriels à jour.</p>
+            <p>Exemple de lien communautaire : <code>https://ps3xploit.me</code> (ou archives similaires).</p>
         </div>
         
     </div>
