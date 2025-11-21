@@ -1,0 +1,53 @@
+/* Importation d'une police Google (Optionnel) */
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap');
+
+:root {
+    --ps-blue: #003791;
+    --ps-light: #00a2ff;
+    --bg-dark: #121212;
+    --text-light: #e0e0e0;
+    --card-dark: #1e1e1e;
+}
+
+body {
+    font-family: 'Roboto', sans-serif;
+    background-color: var(--bg-dark);
+    color: var(--text-light);
+}
+
+/* En-tête */
+.jumbotron {
+    background: linear-gradient(135deg, var(--ps-blue), var(--bg-dark));
+    padding: 6rem 3rem;
+    border-bottom: 5px solid var(--ps-light);
+    color: white;
+}
+
+/* Cartes (Design personnalisé) */
+.card {
+    background-color: var(--card-dark) !important;
+    border: none;
+    transition: all 0.3s;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.4);
+}
+
+.card:hover {
+    transform: translateY(-5px);
+    border-top: 3px solid var(--ps-light);
+}
+
+.card-title {
+    color: var(--ps-light);
+}
+
+/* Bouton (couleur PS) */
+.btn-ps {
+    background-color: var(--ps-blue);
+    border-color: var(--ps-blue);
+    color: white;
+}
+
+.btn-ps:hover {
+    background-color: var(--ps-light);
+    border-color: var(--ps-light);
+}
