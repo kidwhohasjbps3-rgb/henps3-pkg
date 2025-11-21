@@ -3,52 +3,128 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>⛏️ PS3 Homebrew Station - Minecraft Style</title>
-    
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Pixelify+Sans:wght@400..700&display=swap" rel="stylesheet">
-    
-    <link rel="stylesheet" href="style.css">
-    </head>
+    <title>Explication : PS3 HEN (Homebrew Enabler)</title>
+    <style>
+        /* Styles de base pour un rendu moderne */
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f4f4f9; /* Arrière-plan très clair */
+            color: #333; /* Texte sombre */
+            line-height: 1.6;
+        }
+
+        .header {
+            background-color: #34495e; /* Bleu foncé/gris */
+            color: white;
+            padding: 40px 20px;
+            text-align: center;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+
+        .header h1 {
+            margin: 0;
+            font-size: 2.5em;
+        }
+
+        .container {
+            max-width: 900px;
+            margin: 30px auto;
+            padding: 20px;
+            background-color: white;
+            border-radius: 8px;
+            box-shadow: 0 0 20px rgba(0, 0, 0, 0.05);
+        }
+
+        .section {
+            padding: 20px 0;
+            border-bottom: 1px solid #eee;
+        }
+
+        .section:last-child {
+            border-bottom: none;
+        }
+
+        .section h2 {
+            color: #2c3e50; /* Bleu marine */
+            border-left: 5px solid #e74c3c; /* Barre rouge à gauche */
+            padding-left: 10px;
+            margin-top: 0;
+            font-size: 1.8em;
+        }
+
+        ul {
+            list-style-type: none;
+            padding: 0;
+        }
+
+        ul li {
+            background: #ecf0f1; /* Gris clair pour les éléments de liste */
+            margin-bottom: 10px;
+            padding: 15px;
+            border-radius: 4px;
+            transition: background-color 0.3s;
+        }
+
+        ul li:hover {
+            background-color: #dce0e1;
+        }
+
+        .important {
+            background-color: #f9e2e2; /* Rouge pâle pour l'attention */
+            border-left: 5px solid #c0392b;
+            padding: 15px;
+            margin-top: 20px;
+            border-radius: 4px;
+            font-weight: bold;
+            color: #c0392b;
+        }
+
+        code {
+            background-color: #eee;
+            padding: 2px 4px;
+            border-radius: 3px;
+        }
+    </style>
+</head>
 <body>
-    <header class="block-header">
-        <h1>MineCraft ⛏️ PS3 HAN/HEN Station</h1>
-        <p>Bienvenue dans notre mine d'Homebrew. Préparez vos pioches !</p>
+
+    <header class="header">
+        <h1>🎮 Le PS3 HEN (Homebrew ENabler) expliqué</h1>
+        <p>Tout ce que vous devez savoir sur cet outil essentiel pour la communauté PlayStation 3.</p>
     </header>
 
-    <main class="container">
-        
-        <section class="block-section dirt">
-            <h2>💎 Étape 1 : Activer la Forteresse (HEN / HAN)</h2>
-            <div class="card">
-                [Image of Minecraft Redstone Dust]
-                <p>Cliquez sur ce bouton pour alimenter la console et activer le Homebrew Enabler.</p>
-                <button id="activate-hen" class="btn-mine diamond">Activer PS3 HEN 4.89+</button>
-                <p class="status-text">Statut : 🌲 En attente de redstone...</p>
-            </div>
-        </section>
+    <div class="container">
 
-        <section class="block-section wood">
-            <h2>📦 Étape 2 : Lancer un Jeu (Le Distributeur)</h2>
-            <div class="card">
-                 [Image of Minecraft Dispenser or Chest]
-                <p>Sélectionnez un "objet" (Jeu/Outil) à distribuer après l'activation du HEN.</p>
-                <ul class="pkg-list">
-                    <li><button class="btn-pkg stone">Lanceur MultiMan (Outil de Base)</button></li>
-                    <li><button class="btn-pkg iron">Jeu PS3 1 (Pioche en Fer)</button></li>
-                    <li><button class="btn-pkg gold">Jeu Rétro (Pomme d'Or)</button></li>
-                </ul>
-            </div>
-        </section>
-
-        <div id="log-console" class="log-console">
-            [Console] Prêt à construire...
+        <div class="section">
+            <h2>Qu'est-ce que le PS3 HEN ?</h2>
+            <p>Le **PS3 HEN** (abréviation de **H**omebrew **EN**abler) est une solution logicielle non-officielle permettant d'activer des fonctionnalités de **Homebrew** (logiciels non signés) sur les consoles PlayStation 3 qui ne peuvent pas installer un **Custom Firmware (CFW)** complet.</p>
+            <p>Il est principalement utilisé sur les modèles de PS3 plus récents (**Slim** et **Super Slim**) qui ont été mis à jour au-delà de la version de firmware 4.82, ou qui ne sont tout simplement pas compatibles avec un CFW traditionnel.</p>
+            <p class="important">⚠️ **Attention :** Le HEN doit être activé à **chaque démarrage** de la console, contrairement à un CFW qui est permanent.</p>
         </div>
-    </main>
+        
+        <div class="section">
+            <h2>Principales Caractéristiques et Utilisations</h2>
+            <p>Le HEN ouvre la porte à de nombreuses possibilités sur votre console. Une fois activé, vous pouvez profiter des éléments suivants :</p>
+            <ul>
+                <li>Accès au **MultiMAN** ou **WebMAN Mod** : Des gestionnaires de fichiers et de sauvegardes pour lancer des jeux depuis un disque dur interne/externe.</li>
+                <li>Installation de **Homebrews** : Applications développées par la communauté (émulateurs, outils de sauvegarde, etc.) au format <code>.pkg</code>.</li>
+                <li>Utilisation de **Patchs et Mods** : Modification des jeux existants.</li>
+                <li>Possibilité de réaliser des **backups** de vos jeux pour les préserver.</li>
+            </ul>
+        </div>
+        
+        <div class="section">
+            <h2>HEN vs. Custom Firmware (CFW)</h2>
+            <p>Bien que similaires, ils ne sont pas identiques. Voici la principale différence :</p>
+            <ul>
+                <li>**CFW (Custom Firmware) :** Est un firmware modifié qui s'installe **définitivement** sur la console (nécessite certains modèles **Fat** ou **Slim**). Il donne des permissions de noyau permanentes.</li>
+                <li>**HEN (Homebrew Enabler) :** Est un exploit qui s'exécute en **mémoire** (RAM) et doit être relancé. Il est compatible avec **tous les modèles** de PS3 ayant le firmware requis. Il offre un accès utilisateur aux fonctionnalités CFW, mais n'est pas un CFW à part entière.</li>
+            </ul>
+        </div>
+        
+    </div>
 
-    <footer class="block-footer">
-        <p>&copy; 2025 Minecraft PS3 Homebrew | Attention aux Creepers !</p>
-    </footer>
 </body>
 </html>
